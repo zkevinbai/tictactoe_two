@@ -90,3 +90,8 @@ body {
 .game-info {
   margin-left: 20px;
 }
+
+.reset {
+  margin: 1rem;
+  margin-left: 0rem;
+}
