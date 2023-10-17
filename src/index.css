@@ -95,3 +95,8 @@ body {
   margin: 1rem;
   margin-left: 0rem;
 }
+
+.parent button {
+  font: inherit;
+  /* This will inherit font properties */
+}
