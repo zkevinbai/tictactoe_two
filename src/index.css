@@ -27,7 +27,8 @@ body {
 }
 
 .square:hover {
-  background-color: rgba(0, 255, 255, 0.3)
+  background-color: rgba(0, 255, 255, 0.3);
+  cursor: pointer;
 }
 
 .square-winner {
@@ -68,6 +69,10 @@ ol.reversed-ol {
   /* transform: scaleX(-1); */
   display: flex !important;
   flex-direction: column-reverse !important;
+}
+
+.sort-moves {
+  margin-left: 2rem;
 }
 
 /* .reversed-ol > li {
