@@ -33,7 +33,7 @@ export default function Board() {
   function handleClick (idx) {
     console.log(squares, calculateWinner(squares))
 
-    if (squares[idx] || calculateWinner(squares)) { 
+    if (calculateWinner(squares) || squares[idx]) { 
       return 
     }
 
@@ -41,12 +41,10 @@ export default function Board() {
 
     if (xIsNext) {
       nextSquares[idx] = 'X'
-      setXIsNext(false)
     } else {
       nextSquares[idx] = 'O'
-      setXIsNext(true)
     }
-
+    setXIsNext(!xIsNext)
     setSquares(nextSquares)
   }
 
@@ -90,7 +88,7 @@ function calculateWinner(squares) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
   ]
 
   for (let i = 0; i < lines.length; i++) {
