@@ -17,10 +17,15 @@ function Square({
   )
 }
 
-export default function Board() {
+export function Board(
+  xIsNext,
+  squares,
+  onPlay,
+  handleReset,
+) {
 
-  const [xIsNext, setXIsNext] = useState(true)
-  const [squares, setSquares] = useState(Array(9).fill(null))
+  // const [xIsNext, setXIsNext] = useState(true)
+  // const [squares, setSquares] = useState(Array(9).fill(null))
 
   function handleClick (idx) {
     console.log(squares, calculateWinner(squares))
@@ -36,13 +41,7 @@ export default function Board() {
     } else {
       nextSquares[idx] = 'O'
     }
-    setXIsNext(!xIsNext)
-    setSquares(nextSquares)
-  }
-
-  function handleReset() {
-    const nextSquares = Array(9).fill(null)
-    setSquares(nextSquares)
+    onPlay(nextSquares)
   }
 
   const winner = calculateWinner(squares)
@@ -76,6 +75,38 @@ export default function Board() {
         <button onClick={handleReset}>reset</button>
       </div>
     </>
+  )
+}
+
+export default function Game() {
+  const [xIsNext, setXIsNext] = useState(true)
+  const [history, setHistory] = useState([Array(9).fill(null)])
+
+  const currentSquares = history[history.length - 1]
+
+  function handlePlay(nextSquares) {
+    setHistory([...history, nextSquares])
+    setXIsNext(!xIsNext)
+  }
+
+  function handleReset() {
+    setHistory([Array(9).fill(null)])
+  }
+
+  return (
+    <div className='game'>
+      <div className='game-board'>
+        <Board
+          xIsNext = {xIsNext}
+          squares = {currentSquares}
+          onPlay = {handlePlay}
+          onReset = {handleReset}
+        />
+      </div>
+      <div>
+        <ol>{/* todo */}</ol>
+      </div>
+    </div>
   )
 }
 
