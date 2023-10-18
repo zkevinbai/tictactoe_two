@@ -3,6 +3,7 @@ import {
 } from 'react'
 
 function Square({
+  isWinner,
   value,
   onSquareClick
 }) {
@@ -10,7 +11,7 @@ function Square({
   return (
     <button
       onClick={onSquareClick}
-      className="square"
+      className={ isWinner ? 'square square-winner' : 'square'}
     >
       {value}
     </button>
@@ -22,15 +23,10 @@ export function Board({
   squares,
   onPlay,
   onReset,
+  winningLine,
 }) {
-
-  // const [xIsNext, setXIsNext] = useState(true)
-  // const [squares, setSquares] = useState(Array(9).fill(null))
-
   function handleClick (idx) {
-    console.log(squares, calculateWinner(squares))
-
-    if (calculateWinner(squares) || squares[idx]) { 
+    if (winningLine || squares[idx]) { 
       return 
     }
 
@@ -46,6 +42,7 @@ export function Board({
   }
 
   const renderRow = (row) => {
+    // console.log(winningLine)
     return (
       <div className='board-row' key={row}>
         {
@@ -53,6 +50,7 @@ export function Board({
             const squareIndex = row * 3 + col
             return (
               <Square
+                isWinner={winningLine && winningLine.includes(squareIndex)}
                 key={squareIndex}
                 value={squares[squareIndex]}
                 onSquareClick={() => handleClick(squareIndex)}
@@ -64,9 +62,9 @@ export function Board({
     )
   }
 
-  const winner = calculateWinner(squares)
   let status
-  if (winner) {
+  if (winningLine) {
+    const winner = squares[winningLine[0]]
     status = "Winner: " + winner
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O")
@@ -90,6 +88,7 @@ export function Board({
 }
 
 export default function Game() {
+  const [winningLine, setWiningLine] = useState(null)
   const [latestFirst, setLatestFirst] = useState(false)
   const [history, setHistory] = useState([Array(9).fill(null)])
   const [currentMove, setCurrentMove] = useState(0)
@@ -100,11 +99,14 @@ export default function Game() {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares]
     setHistory(nextHistory)
     setCurrentMove(nextHistory.length - 1)
+    // debugger
+    setWiningLine(calculateWinner(nextSquares))
   }
 
   function handleReset() {
     setHistory([Array(9).fill(null)])
     setCurrentMove(0)
+    setWiningLine(null)
   }
 
   // console.log({history, currentSquares})
@@ -144,17 +146,17 @@ export default function Game() {
           squares = {currentSquares}
           onPlay = {handlePlay}
           onReset = {handleReset}
+          winningLine = {winningLine}
         />
       </div>
       <div>
         <button 
-          className='sort'
+          className='sort-moves'
           onClick={() => setLatestFirst(!latestFirst)}
         >
-          {latestFirst ? "Oldest move first" : "Latest move first"}
+          {latestFirst ? "Latest move first" : "Oldest move first"}
         </button>
-        {/* {!!latestFirst} */}
-        <ol className={latestFirst ? '' : 'reversed-ol'}>
+        <ol className={latestFirst ? 'reversed-ol' : ''}>
           {moves}
         </ol>
       </div>
@@ -177,7 +179,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a]
+      return lines[i]
     }
   }
 
