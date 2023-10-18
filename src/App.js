@@ -90,6 +90,7 @@ export function Board({
 }
 
 export default function Game() {
+  const [latestFirst, setLatestFirst] = useState(false)
   const [history, setHistory] = useState([Array(9).fill(null)])
   const [currentMove, setCurrentMove] = useState(0)
   const xIsNext = currentMove % 2 === 0
@@ -146,7 +147,15 @@ export default function Game() {
         />
       </div>
       <div>
-        <ol>{moves}</ol>
+        <button 
+          className='sort'
+          onClick={() => setLatestFirst(!latestFirst)}
+        >
+          {latestFirst ? "Oldest move" : "Latest move"} first
+        </button>
+        <ol className={latestFirst ? '' : 'reversed-ol'}>
+          {moves}
+        </ol>
       </div>
     </div>
   )
