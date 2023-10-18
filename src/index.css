@@ -70,6 +70,13 @@ body {
   padding: 0;
   text-align: center;
   width: 100px;
+  /* background-color: blue; */
+  transition: background-color 0.3s;
+  /* Add a smooth transition effect */
+}
+
+.square:hover{
+  background-color: rgba(0, 255, 255, 0.3)
 }
 
 .board-row:after {
