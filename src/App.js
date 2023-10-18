@@ -24,6 +24,7 @@ export function Board({
   onPlay,
   onReset,
   winningLine,
+  isATie,
 }) {
   function handleClick (idx) {
     if (winningLine || squares[idx]) { 
@@ -66,6 +67,8 @@ export function Board({
   if (winningLine) {
     const winner = squares[winningLine[0]]
     status = "Winner: " + winner
+  } else if (isATie) {
+    status = 'Its a tie, would you like to play again?'
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O")
   }
@@ -113,6 +116,7 @@ export default function Game() {
 
   function jumpTo(nextMove) {
     setCurrentMove(nextMove)
+    setWiningLine(calculateWinner(nextMove))
   }
 
   const moves = history.map((squares, move) => {
@@ -147,6 +151,7 @@ export default function Game() {
           onPlay = {handlePlay}
           onReset = {handleReset}
           winningLine = {winningLine}
+          isATie = {!winningLine && currentMove === 9}
         />
       </div>
       <div>
