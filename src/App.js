@@ -124,7 +124,7 @@ export default function Game() {
     if (move === currentMove) {
       return (
         <li key={move}>
-          You are at move # {move}
+          {move !== 0 ? 'You are at move # ' + move : 'You are at the first move'}
         </li>
       )
     } else {
