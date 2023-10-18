@@ -151,8 +151,9 @@ export default function Game() {
           className='sort'
           onClick={() => setLatestFirst(!latestFirst)}
         >
-          {latestFirst ? "Oldest move" : "Latest move"} first
+          {latestFirst ? "Oldest move first" : "Latest move first"}
         </button>
+        {/* {!!latestFirst} */}
         <ol className={latestFirst ? '' : 'reversed-ol'}>
           {moves}
         </ol>
