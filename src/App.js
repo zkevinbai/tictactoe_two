@@ -50,7 +50,7 @@ export default function Board() {
   if (winner) {
     status = "Winner: " + winner
   } else {
-    status = "Next player: " + (xIsNext ? "x" : "O")
+    status = "Next player: " + (xIsNext ? "X" : "O")
   }
 
   return (
@@ -96,6 +96,7 @@ function calculateWinner(squares) {
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a]
     }
-    return null
   }
+
+  return null
 }
