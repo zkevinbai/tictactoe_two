@@ -148,7 +148,8 @@ export default function Game() {
 
     if (move > 0) {
       const { index, player, row, column } = moveHistory[move - 1]
-      description = `Go to move # ${move} by ${player} at row ${row} and column ${column}`
+      // description = `Go to move # ${move} by ${player} at row ${row} and column ${column}`
+      description = `Go to move # ${move} by ${move % 2 ? 'X' : 'O'}`
     } else {
       description = 'Go to game start'
     }
@@ -156,7 +157,8 @@ export default function Game() {
     if (move === currentMove) {
       return (
         <li key={move}>
-          {move === 0 ? 'You are at the first move' : 'You are at move # ' + move}
+          {move === 0 ? 'You are at the first move' : 
+            `You are at move # ${move} by ${move % 2 ? 'X' : 'O'}`}
         </li>
       )
     } else {
