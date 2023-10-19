@@ -153,7 +153,7 @@ export default function Game() {
     let description
 
     if (move > 0) {
-      const { index, player, row, column } = moveHistory[move - 1]
+      // const { index, player, row, column } = moveHistory[move - 1]
       // description = `Go to move # ${move} by ${player} at row ${row} and column ${column}`
       description = `Go to move # ${move} by ${move % 2 ? 'X' : 'O'}`
     } else {
