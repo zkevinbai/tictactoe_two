@@ -1,3 +1,8 @@
+# React Tic Tac Toe
+
+## This is a tic tac toe game with time travel implemented
+
+Fun things done
 - [x] For the current move only, show “You are at move #…” instead of a button.
 - [x] Rewrite Board to use two loops to make the squares instead of hardcoding them.
   * this was challenging for me

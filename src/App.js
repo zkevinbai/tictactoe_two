@@ -104,6 +104,12 @@ export function Board({
       <div className='reset'>
         <button onClick={onReset}>reset</button>
       </div>
+
+      <div>
+        <a href="https://github.com/zkevinbai/tictactoe_two/tree/master" target="_blank" rel="noopener noreferrer">
+          Open Github Repo (see the code)
+        </a>
+      </div>
     </>
   )
 }
