@@ -33,13 +33,31 @@ export function Board({
 
     const nextSquares = squares.slice()
 
-    if (xIsNext) {
-      nextSquares[idx] = 'X'
-    } else {
-      nextSquares[idx] = 'O'
+    function calculateRowAndColumn(squareIndex) {
+      const row = Math.floor(squareIndex / 9);
+      const column = squareIndex % 9;
+      return { row, column };
+    }
+    const {row, column} = calculateRowAndColumn(idx)
+    const nextMoveData = { 
+      index: idx,
+      player: null,
+      row: row,
+      column: column,
     }
 
-    onPlay(nextSquares)
+    if (xIsNext) {
+      nextSquares[idx] = 'X'
+      nextMoveData.player = 'X'
+    } else {
+      nextSquares[idx] = 'O'
+      nextMoveData.player = 'O'
+    }
+
+    onPlay({
+      nextSquares: nextSquares,
+      moveData: {...nextMoveData}
+    })
   }
 
   const renderRow = (row) => {
@@ -95,14 +113,20 @@ export default function Game() {
   const [latestFirst, setLatestFirst] = useState(false)
   const [history, setHistory] = useState([Array(9).fill(null)])
   const [currentMove, setCurrentMove] = useState(0)
+  const [moveHistory, setMoveHistory] = useState({})
   const xIsNext = currentMove % 2 === 0
   const currentSquares = history[currentMove]
 
-  function handlePlay(nextSquares) {
+  function handlePlay({nextSquares, moveData}) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares]
     setHistory(nextHistory)
+
     setCurrentMove(nextHistory.length - 1)
-    // debugger
+
+    const nextMoveHistory = {...moveHistory}
+    nextMoveHistory[currentMove] = moveData
+    setMoveHistory(nextMoveHistory)
+    
     setWiningLine(calculateWinner(nextSquares))
   }
 
@@ -121,8 +145,10 @@ export default function Game() {
 
   const moves = history.map((squares, move) => {
     let description
+
     if (move > 0) {
-      description = 'Go to move # ' + move
+      const { index, player, row, column } = moveHistory[move - 1]
+      description = `Go to move # ${move} by ${player} at row ${row} and column ${column}`
     } else {
       description = 'Go to game start'
     }
@@ -130,7 +156,7 @@ export default function Game() {
     if (move === currentMove) {
       return (
         <li key={move}>
-          {move !== 0 ? 'You are at move # ' + move : 'You are at the first move'}
+          {move === 0 ? 'You are at the first move' : 'You are at move # ' + move}
         </li>
       )
     } else {
