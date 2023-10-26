@@ -1,7 +1,7 @@
 import React , { useState } from 'react';
 import Board from './Board';
 
-export default function Game() {
+function Game() {
     const [winningLine, setWiningLine] = useState(null)
     const [latestFirst, setLatestFirst] = useState(false)
     const [history, setHistory] = useState([Array(9).fill(null)])
@@ -88,7 +88,7 @@ export default function Game() {
             </div>
         </div>
     )
-}
+};
 
 function calculateWinner(squares) {
     const lines = [
@@ -110,4 +110,6 @@ function calculateWinner(squares) {
     }
 
     return null
-}
+};
+
+export default Game;
