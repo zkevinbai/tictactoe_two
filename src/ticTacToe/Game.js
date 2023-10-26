@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Square from './Square';
 import Board from './Board';
 import MoveHistory from './MoveHistory';
 
