@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'
 import Game from './Game';
 
 test('renders the game board', () => {
@@ -20,29 +21,21 @@ test('allows making a move by clicking a square', () => {
   expect(square).toHaveTextContent('X');
 });
 
-test('displays the correct winner', () => {
+test('allows winning the game and dsiplays the correct winner', () => {
   render(<Game />);
+  const status = screen.getByText('Next player: X');
+  expect(status).toBeInTheDocument();
 
-  // Make moves to create a winning line
-  const squares = [
-    screen.getByText('X', { exact: false }),
-    screen.getByText('O', { exact: false }),
-    screen.getByText('X', { exact: false }),
-    screen.getByText('O', { exact: false }),
-    screen.getByText('X', { exact: false }),
-    screen.getByText('O', { exact: false }),
-    screen.getByText('X', { exact: false }),
-    screen.getByText('O', { exact: false }),
-    screen.getByText('X', { exact: false }),
-  ];
+  const squares = screen.getAllByRole('button');
+  fireEvent.click(squares[0]); // X
+  fireEvent.click(squares[3]); // O
+  fireEvent.click(squares[1]); // X
+  fireEvent.click(squares[4]); // O
+  fireEvent.click(squares[2]); // X
 
-  // Click on squares to create a winning line
-  squares.forEach((square) => {
-    fireEvent.click(square);
-  });
-
-  // Ensure that the game displays the correct winner
-  expect(screen.getByText('Winner: X')).toBeInTheDocument();
+  // Assert the status after X wins
+  const winnerStatus = screen.getByText('Winner: X');
+  expect(winnerStatus).toBeInTheDocument();
 });
 
 test('allows resetting the game', () => {

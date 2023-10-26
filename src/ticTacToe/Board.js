@@ -84,7 +84,7 @@ function Board({
                 }
             </div>
 
-            <div className='reset'>
+            <div className='reset' data-testid="reset-button">
                 <button onClick={onReset}>reset</button>
             </div>
 
