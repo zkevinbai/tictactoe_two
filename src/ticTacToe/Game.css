@@ -1,13 +1,9 @@
-* {
-    font-family: 'Lato', sans-serif;
-}
-
 .game {
     display: grid;
     place-items: center;
     height: 100vh;
     /* Ensure the board takes up the full viewport height */
-    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
 }
 
 /* Use CSS Grid for board rows */
