@@ -11,17 +11,17 @@ body {
 .square {
   background: #fff;
   border: 1px solid #999;
-  float: left;
   font-size: 75px;
   font-weight: bold;
   line-height: 7rem;
   height: 7rem;
-  margin-right: -1px;
-  margin-top: -1px;
   padding: 0;
   text-align: center;
+  /* Use CSS Grid for squares */
+  display: grid;
+  place-items: center;
+  /* Maintain the size without margin and border adjustments */
   width: 7rem;
-  /* background-color: blue; */
   transition: background-color 0.3s;
   /* Add a smooth transition effect */
 }
@@ -36,6 +36,13 @@ body {
   background-color: rgba(6, 247, 247, 0.6)
 }
 
+/* Use CSS Grid for board rows */
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: 5px; */
+}
+
 .board-row:after {
   clear: both;
   content: '';
@@ -43,6 +50,7 @@ body {
 }
 
 .status {
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -56,25 +64,21 @@ body {
 }
 
 .reset {
+  text-align: center;
   margin: 1rem;
-  margin-left: 0rem;
 }
 
-.parent button {
+button {
   font: inherit;
-  /* This will inherit font properties */
 }
 
+/* Style reversed move history */
 ol.reversed-ol {
-  /* transform: scaleX(-1); */
   display: flex !important;
   flex-direction: column-reverse !important;
 }
 
+/* Adjust margin for the "Sort Moves" button */
 .sort-moves {
-  margin-left: 2rem;
+  margin-left: 2.5rem;
 }
-
-/* .reversed-ol > li {
-  transform: scaleX(-1);
-} */
