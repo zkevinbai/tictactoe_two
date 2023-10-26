@@ -8,7 +8,7 @@ function MoveHistory({
     jumpTo 
 }) {
     return (
-        <div>
+        <>
             <button
                 className='sort-moves'
                 onClick={() => setLatestFirst(!latestFirst)}
@@ -31,7 +31,7 @@ function MoveHistory({
                     );
                 })}
             </ol>
-        </div>
+        </>
     );
 }
 

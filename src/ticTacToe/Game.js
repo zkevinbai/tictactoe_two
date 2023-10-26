@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Board from './Board';
 import MoveHistory from './MoveHistory';
+import './Game.css'
 
 function Game() {
     const [gameState, setGameState] = useState({
@@ -58,7 +59,7 @@ function Game() {
                     isATie={!gameState.winningLine && gameState.currentMove === 9}
                 />
             </div>
-            <div>
+            <div className='move-history'>
                 <MoveHistory
                     latestFirst={gameState.latestFirst}
                     setLatestFirst={(latestFirst) =>
