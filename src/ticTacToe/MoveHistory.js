@@ -1,6 +1,12 @@
 import React from 'react';
 
-function MoveHistory({ latestFirst, setLatestFirst, moves, currentMove, jumpTo }) {
+function MoveHistory({ 
+    latestFirst,
+    setLatestFirst,
+    moves,
+    currentMove,
+    jumpTo 
+}) {
     return (
         <div>
             <button
