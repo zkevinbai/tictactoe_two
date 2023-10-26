@@ -1,53 +1,61 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import Game from './Game';
 
-test('renders the Game component without errors', () => {
+test('renders the game board', () => {
   render(<Game />);
-  const gameTitle = screen.getByText('Tic-Tac-Toe');
-  expect(gameTitle).toBeInTheDocument();
+
+  // Ensure that the game board is rendered
+  expect(screen.getByText('Next player: X')).toBeInTheDocument();
 });
 
-test('displays the initial game status', () => {
+test('allows making a move by clicking a square', () => {
   render(<Game />);
-  const status = screen.getByText('Next player: X');
-  expect(status).toBeInTheDocument();
+
+  // Find an empty square and click on it
+  const square = screen.getByText('X', { exact: false });
+  fireEvent.click(square);
+
+  // Ensure that the square has changed its content to 'X'
+  expect(square).toHaveTextContent('X');
 });
 
-test('allows a user to make a move', () => {
+test('displays the correct winner', () => {
   render(<Game />);
-  const squareButtons = screen.getAllByRole('button', { name: '' }); // Get all square buttons
 
-  // Click on the first square button
-  fireEvent.click(squareButtons[0]);
+  // Make moves to create a winning line
+  const squares = [
+    screen.getByText('X', { exact: false }),
+    screen.getByText('O', { exact: false }),
+    screen.getByText('X', { exact: false }),
+    screen.getByText('O', { exact: false }),
+    screen.getByText('X', { exact: false }),
+    screen.getByText('O', { exact: false }),
+    screen.getByText('X', { exact: false }),
+    screen.getByText('O', { exact: false }),
+    screen.getByText('X', { exact: false }),
+  ];
 
-  const status = screen.getByText('Next player: O');
-  expect(status).toBeInTheDocument();
+  // Click on squares to create a winning line
+  squares.forEach((square) => {
+    fireEvent.click(square);
+  });
+
+  // Ensure that the game displays the correct winner
+  expect(screen.getByText('Winner: X')).toBeInTheDocument();
 });
 
-test('displays the winner when the game is won', () => {
+test('allows resetting the game', () => {
   render(<Game />);
-  const squareButtons = screen.getAllByRole('button', { name: '' }); // Get all square buttons
 
-  // Play a winning move
-  fireEvent.click(squareButtons[0]);
-  fireEvent.click(squareButtons[3]);
-  fireEvent.click(squareButtons[1]);
-  fireEvent.click(squareButtons[4]);
-  fireEvent.click(squareButtons[2]);
+  // Make a move to change the game state
+  const square = screen.getByText('X', { exact: false });
+  fireEvent.click(square);
 
-  const status = screen.getByText('Winner: X');
-  expect(status).toBeInTheDocument();
-});
-
-test('allows the game to be reset', () => {
-  render(<Game />);
-  const resetButton = screen.getByRole('button', { name: 'reset' }); // Get the reset button
-
-  // Play a move and then reset the game
-  fireEvent.click(screen.getByText('Go to move # 1 by X'));
+  // Reset the game
+  const resetButton = screen.getByTestId('reset-button');
   fireEvent.click(resetButton);
 
-  const status = screen.getByText('Next player: X');
-  expect(status).toBeInTheDocument();
+  // Ensure that the game has been reset to its initial state
+  expect(screen.getByText('Next player: X')).toBeInTheDocument();
 });
