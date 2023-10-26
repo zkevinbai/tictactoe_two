@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function MoveHistory({ moves, jumpTo }) {
-    const [latestFirst, setLatestFirst] = useState(false)
-
+function MoveHistory({ latestFirst, setLatestFirst, moves, currentMove, jumpTo }) {
     return (
         <div>
             <button
@@ -12,13 +10,20 @@ function MoveHistory({ moves, jumpTo }) {
                 {latestFirst ? "Latest move first" : "Oldest move first"}
             </button>
             <ol className={latestFirst ? 'reversed-ol' : ''}>
-                {moves.map((description, move) => (
-                    <li key={move}>
-                        {move === 0 ? 'You are at the first move' : (
-                            <button onClick={() => jumpTo(move)}>{description}</button>
-                        )}
-                    </li>
-                ))}
+                {moves.map((squares, move) => {
+                    const description = move ? `Go to move # ${move} by ${move % 2 ? 'X' : 'O'}` : 'Go to game start';
+                    const isSelected = move === currentMove;
+
+                    return (
+                        <li key={move}>
+                            {isSelected ? (
+                                move === 0 ? 'You are at the first move' : `You are at move # ${move} by ${move % 2 ? 'X' : 'O'}`
+                            ) : (
+                                <button onClick={() => jumpTo(move)}>{description}</button>
+                            )}
+                        </li>
+                    );
+                })}
             </ol>
         </div>
     );
