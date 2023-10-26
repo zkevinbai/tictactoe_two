@@ -11,8 +11,10 @@ Fun things done
   * much better to do this with css
   * ran into trouble with style not applying, issue was that I was not importing the stylesheet
 - [x] When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw).
-- [ ] Display the location for each move in the format (row, col) in the move history list.
-- [ ] refactor this nonsense
+- [x] Display the location for each move in the format (row, col) in the move history list.
+- [x] refactor this nonsense, separation of concerns
+- [x] add testing 25 October 2023 Wednesday
+- [ ] style and make pretty
 
 # Getting Started with Create React App
 
