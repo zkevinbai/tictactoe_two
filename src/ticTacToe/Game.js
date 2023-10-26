@@ -3,36 +3,47 @@ import Board from './Board';
 import MoveHistory from './MoveHistory';
 
 function Game() {
-    const [winningLine, setWiningLine] = useState(null);
-    const [latestFirst, setLatestFirst] = useState(false);
-    const [history, setHistory] = useState([Array(9).fill(null)]);
-    const [currentMove, setCurrentMove] = useState(0);
-    const [moveHistory, setMoveHistory] = useState({});
-    const xIsNext = currentMove % 2 === 0;
-    const currentSquares = history[currentMove];
+    const [gameState, setGameState] = useState({
+        winningLine: null,
+        latestFirst: false,
+        history: [Array(9).fill(null)],
+        currentMove: 0,
+        moveHistory: {},
+    });
+
+    const xIsNext = gameState.currentMove % 2 === 0;
+    const currentSquares = gameState.history[gameState.currentMove];
 
     function handlePlay({ nextSquares, moveData }) {
-        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
-        setHistory(nextHistory);
+        const nextHistory = [...gameState.history.slice(0, gameState.currentMove + 1), nextSquares];
 
-        setCurrentMove(nextHistory.length - 1);
-
-        const nextMoveHistory = { ...moveHistory };
-        nextMoveHistory[currentMove] = moveData;
-        setMoveHistory(nextMoveHistory);
-
-        setWiningLine(calculateWinner(nextSquares));
+        setGameState({
+            ...gameState,
+            history: nextHistory,
+            currentMove: nextHistory.length - 1,
+            moveHistory: {
+                ...gameState.moveHistory,
+                [gameState.currentMove]: moveData,
+            },
+            winningLine: calculateWinner(nextSquares),
+        });
     }
 
     function handleReset() {
-        setHistory([Array(9).fill(null)]);
-        setCurrentMove(0);
-        setWiningLine(null);
+        setGameState({
+            ...gameState,
+            history: [Array(9).fill(null)],
+            currentMove: 0,
+            winningLine: null,
+        });
     }
 
     function jumpTo(nextMove) {
-        setCurrentMove(nextMove);
-        setWiningLine(calculateWinner(history[nextMove]));
+        setGameState({
+            ...gameState,
+            currentMove: nextMove,
+            winningLine: calculateWinner(gameState.history[nextMove]),
+        });
     }
 
     return (
@@ -43,16 +54,18 @@ function Game() {
                     squares={currentSquares}
                     onPlay={handlePlay}
                     onReset={handleReset}
-                    winningLine={winningLine}
-                    isATie={!winningLine && currentMove === 9}
+                    winningLine={gameState.winningLine}
+                    isATie={!gameState.winningLine && gameState.currentMove === 9}
                 />
             </div>
             <div>
                 <MoveHistory
-                    latestFirst={latestFirst}
-                    setLatestFirst={setLatestFirst}
-                    moves={history}
-                    currentMove={currentMove}
+                    latestFirst={gameState.latestFirst}
+                    setLatestFirst={(latestFirst) =>
+                        setGameState({ ...gameState, latestFirst })
+                    }
+                    moves={gameState.history}
+                    currentMove={gameState.currentMove}
                     jumpTo={jumpTo}
                 />
             </div>
