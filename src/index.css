@@ -1,84 +1,134 @@
-* {
+/* Reset some default browser styles */
+html,
+body,
+div,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Set a baseline font size and line height for better consistency */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Apply a more consistent box sizing model */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
 }
 
+/* Remove list styles and padding/margin on list items */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove underline from links and make them easier to style */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset form elements to be consistent */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+/* Remove the blue outline that some browsers add to focused elements */
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+/* Ensure images and other replaced elements are inline by default */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Ensure that tables don't have spacing between cells by default */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset styling on form elements */
+button,
+input,
+select,
+textarea {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Remove default styles on block-level elements */
+h1,
+h2,
+h3,
+p,
+blockquote,
+pre {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default styles on inline-level elements */
+abbr,
+acronym,
+code,
+em,
+strong {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Apply some base styles to the body for typography and background color */
 body {
-  margin: 20px;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #333;
 }
 
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  font-size: 75px;
-  font-weight: bold;
-  line-height: 7rem;
-  height: 7rem;
-  padding: 0;
-  text-align: center;
-  /* Use CSS Grid for squares */
-  display: grid;
-  place-items: center;
-  /* Maintain the size without margin and border adjustments */
-  width: 7rem;
-  transition: background-color 0.3s;
-  /* Add a smooth transition effect */
+/* Add some padding to the body to prevent content from touching the edges of the browser window */
+body {
+  padding: 20px;
 }
 
-.square:hover {
-  background-color: rgba(0, 255, 255, 0.3);
-  cursor: pointer;
-}
-
-.square-winner {
-  transition: background-color 0.5s;
-  background-color: rgba(6, 247, 247, 0.6)
-}
-
-/* Use CSS Grid for board rows */
-.board-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* gap: 5px; */
-}
-
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
-}
-
-.status {
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
-}
-
-.reset {
-  text-align: center;
-  margin: 1rem;
-}
-
-button {
-  font: inherit;
-}
-
-/* Style reversed move history */
-ol.reversed-ol {
-  display: flex !important;
-  flex-direction: column-reverse !important;
-}
-
-/* Adjust margin for the "Sort Moves" button */
-.sort-moves {
-  margin-left: 2.5rem;
-}
+/* You can add more specific styles below this point */
