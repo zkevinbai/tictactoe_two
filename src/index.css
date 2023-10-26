@@ -14,13 +14,13 @@ body {
   float: left;
   font-size: 75px;
   font-weight: bold;
-  line-height: 100px;
-  height: 100px;
+  line-height: 7rem;
+  height: 7rem;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 100px;
+  width: 7rem;
   /* background-color: blue; */
   transition: background-color 0.3s;
   /* Add a smooth transition effect */
