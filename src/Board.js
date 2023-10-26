@@ -1,7 +1,7 @@
 import React from 'react';
 import Square from './App';
 
-export function Board({
+function Board({
     xIsNext,
     squares,
     onPlay,
@@ -95,5 +95,6 @@ export function Board({
             </div>
         </>
     )
-}
+};
 
+export default Board;
