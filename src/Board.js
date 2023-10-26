@@ -1,5 +1,5 @@
 import React from 'react';
-import Square from './App';
+import Square from './Square';
 
 function Board({
     xIsNext,
