@@ -99,13 +99,13 @@ button:hover {
 }
 
 .square:hover {
-    /* background-color: rgba(0, 255, 255, 0.3);
-    background: linear-gradient(to top,
+    /* background: linear-gradient(to top,
         rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5)); */
     /* background-image: conic-gradient(from 250deg, #ff4800 10%, #dfd902 35%, #20dc68, #0092f4, #da54d8 72% 75%, #ff4800 95%); */
     color: rgba(0, 0, 0, 0.5);
-    background: radial-gradient(circle at center,
-        rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));
+    /* background: radial-gradient(circle at center,
+        rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5)); */
+    background-color: rgba(0, 255, 255, 0.3);
 }
 
 .square-winner {
@@ -117,6 +117,10 @@ button:hover {
     background: radial-gradient(circle at center,
             rgba(148, 0, 211, 0.5), rgba(75, 0, 130, 0.5), rgba(0, 0, 255, 0.5), rgba(0, 128, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 0, 0, 0.5));
     /* background-image: conic-gradient(from 270deg, #ff4800 10%, #dfd902 35%, #20dc68, #0092f4, #da54d8 72% 75%, #ff4800 95%); */
+}
+
+.square-winner:hover {
+    color: white;
 }
 
 .game-status {
@@ -147,7 +151,7 @@ button:hover {
     align-items: flex-start;
     justify-self: center;
     /* Align content to the top */
-    max-height: 27rem;
+    max-height: 30rem;
     width: 15rem;
     /* Set a maximum height if needed, so it scrolls when it exceeds this height */
     overflow-y: auto;
@@ -178,6 +182,7 @@ button:hover {
 .history-button {
     border-radius: 1rem;
     margin-bottom: 0.1rem;
+    padding: 0.25rem;
 }
 
 .history-button:hover {
