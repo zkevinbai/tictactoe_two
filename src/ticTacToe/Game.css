@@ -32,8 +32,21 @@ button:hover {
     text-decoration: underline;
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Adjust the max-width value to your needs */
+    .nowrap {
+        white-space: normal;
+        display: block;
+    }
+}
+
 .ai-container {
-    margin-top: 1rem;
+    margin-top: 0.25rem;
     text-transform: none;
 }
 
@@ -45,10 +58,17 @@ button:hover {
 }
 
 .ai-container>button {
-    background: rgba(255, 255, 255, 0.25)
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    border-left: dashed;
+    border-right: dashed;
+    border-color: white;
+    border-radius: 0.5rem;
+    color: white;
 }
 .ai-container>button:hover {
-    background: rgba(255, 255, 255, 0.75)
+    background: rgba(255, 255, 255, 0.75);
+    color: black;
 }
 /* .title:hover {
     transform: perspective(300px) rotateX(0deg) translateZ(10px);
