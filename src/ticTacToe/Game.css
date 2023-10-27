@@ -151,8 +151,7 @@ background: radial-gradient(circle at center,
     overflow-y: auto;
     /* Add vertical scroll when content exceeds the container height */
     padding: 2rem;
-    /* padding-left: 1rem; */
-    /* Optional: Add padding for spacing */
+    padding-top: 1.25rem;
 }
 
 @media (max-width: 1200px) {
@@ -161,17 +160,35 @@ background: radial-gradient(circle at center,
     }
 }
 
+.move-history>h3 {
+    align-self: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
 .reversed-ol {
     display: flex !important;
     flex-direction: column-reverse !important;
+}
+
+.history-button {
+    border-radius: 1rem;
+    margin-bottom: 0.1rem;
+}
+
+.history-button:hover {
+    color: rgba(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .sort-moves-button {
     align-self: center;
     background-color: transparent;
     margin-bottom: 0.5rem;
+    padding: 0.1rem;
 }
 
 .sort-moves-button:hover {
-    background-color: rgba(0, 0, 0, 0.15);
+    color: rgba(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
 }

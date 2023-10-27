@@ -9,6 +9,7 @@ function MoveHistory({
 }) {
     return (
         <>
+            <h3>Move History</h3>
             <button
                 className='sort-moves-button'
                 onClick={() => setLatestFirst(!latestFirst)}
