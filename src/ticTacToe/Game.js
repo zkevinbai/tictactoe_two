@@ -81,6 +81,7 @@ function Game() {
 
             const randomIndex = Math.floor(Math.random() * availablePositions.length);
             const aiMove = availablePositions[randomIndex];
+
             handlePlay({
                 nextSquares: currentSquares.map((value, index) => {
                     return index === aiMove ? (xIsNext ? 'X' : 'O') : value;
@@ -117,7 +118,7 @@ function Game() {
         // add logic for a boolean play withAI
         // add logic to choose player
         if (!xIsNext && AiActive) {
-            makeAIMove();
+            setTimeout(() => makeAIMove(), 50);
         }
     }, [xIsNext]);
 
@@ -125,13 +126,15 @@ function Game() {
         <>
             <div className='title'>
                 <h1>Kevin's Time Travel Tic Tac Toe</h1>
-                <a href="https://github.com/zkevinbai/tictactoe_two/tree/master" target="_blank" rel="noopener noreferrer">
+                <a href='https://github.com/zkevinbai/tictactoe_two/tree/master' target='_blank' rel='noopener noreferrer'>
                     Github Repo
                 </a>
-                <button className='ai-button' onClick={() => setAiActive(!AiActive)}>
-                    {AiActive ? 'Play Two Player Game' : 'Play Against the AI'}
-                </button>
-                <p>{`You are playing ${AiActive ? 'the AI' : 'a two player game'}`}</p>
+                <div className='ai-container'>
+                    <button className='ai-button' onClick={() => setAiActive(!AiActive)}>
+                        {AiActive ? 'Play Two Player Game' : 'Play Against the AI'}
+                    </button>
+                    <p>{`You are playing ${AiActive ? 'the AI' : 'a two player game'}`}</p>
+                </div>
             </div>
 
             <div className='game'>
