@@ -2,7 +2,7 @@
 
 ## This is a tic tac toe game with time travel implemented
 
-Features I've added
+Features and fun things I've added
 - [x] Make a playable Tic Tac Toe game
 - [x] Allow the user to go back in time through their moves
 - [x] Allow the game to be reset at any time 
