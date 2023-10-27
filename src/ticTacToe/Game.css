@@ -12,13 +12,13 @@
     margin-top: 5rem;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     .game {
         grid-template-columns: none;
         grid-template-rows: repeat(2, 1fr);
-        margin-left: 30%;
-        margin-right: 30%;
-        margin-top: 5rem;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 5rem;
     }
 }
 
@@ -80,15 +80,22 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-self: center;
     /* Align content to the top */
-    max-height: 400px;
+    max-height: 25rem;
     /* Set a maximum height if needed, so it scrolls when it exceeds this height */
     overflow-y: auto;
     /* Add vertical scroll when content exceeds the container height */
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     /* Optional: Add a border for visual separation */
-    padding: 10px;
+    padding: 1rem;
     /* Optional: Add padding for spacing */
+}
+
+@media (max-width: 1200px) {
+    .move-history {
+        margin-top: 2rem;
+    }
 }
 
 .reversed-ol {
