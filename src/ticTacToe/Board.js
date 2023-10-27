@@ -85,7 +85,9 @@ function Board({
             </div>
 
             <div className='reset-button' data-testid="reset-button">
-                <button onClick={onReset}>reset</button>
+                <button onClick={onReset}>
+                    Reset game
+                </button>
             </div>
         </>
     )
