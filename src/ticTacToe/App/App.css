@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    margin: 20px;
+    padding: 0;
+}
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    font-size: 75px;
+    font-weight: bold;
+    line-height: 7rem;
+    height: 7rem;
+    padding: 0;
+    text-align: center;
+    /* Use CSS Grid for squares */
+    display: grid;
+    place-items: center;
+    /* Maintain the size without margin and border adjustments */
+    width: 7rem;
+    transition: background-color 0.3s;
+    /* Add a smooth transition effect */
+}
+
+.square:hover {
+    background-color: rgba(0, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.square-winner {
+    transition: background-color 0.5s;
+    background-color: rgba(6, 247, 247, 0.6)
+}
+
+/* Use CSS Grid for board rows */
+.board-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* gap: 5px; */
+}
+
+.board-row:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.status {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-info {
+    margin-left: 20px;
+}
+
+.reset {
+    text-align: center;
+    margin: 1rem;
+}
+
+button {
+    font: inherit;
+}
+
+/* Style reversed move history */
+ol.reversed-ol {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+}
+
+/* Adjust margin for the "Sort Moves" button */
+.sort-moves {
+    margin-left: 2.5rem;
+}
