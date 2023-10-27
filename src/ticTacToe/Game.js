@@ -118,9 +118,12 @@ function Game() {
         // add logic for a boolean play withAI
         // add logic to choose player
         if (!xIsNext && AiActive) {
-            setTimeout(() => makeAIMove(), 50);
+            setTimeout(
+                () => makeAIMove(),
+                50
+            );
         }
-    }, [xIsNext]);
+    }, [xIsNext, AiActive]);
 
     return (
         <>
