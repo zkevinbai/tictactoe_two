@@ -3,18 +3,18 @@
 ## This is a tic tac toe game with time travel implemented
 
 Fun things done
-- [x] For the current move only, show “You are at move #…” instead of a button.
-- [x] Rewrite Board to use two loops to make the squares instead of hardcoding them.
+- [x] For the current move only, show “You are at move #…” instead of a button. 17 October 2023 Tuesday
+- [x] Rewrite Board to use two loops to make the squares instead of hardcoding them. 17 October 2023 Tuesday
   * this was challenging for me
-  * the key part is this line `const squareIndex = row * 3 + col;` the index at any point in a 3x3 square is equal to the row (0, 1, 2) multiplied by 3 plus the column (0, 1, 2)
+  * the key part is this line `const squareIndex = row * 3 + col;` the index at any point in a 3x3 square is equal to the row (0, 1, 2) multiplied by 3 plus the column (0, 1, 2) 17 October 2023 Tuesday
 - [x] Add a toggle button that lets you sort the moves in either ascending or descending order.
   * much better to do this with css
   * ran into trouble with style not applying, issue was that I was not importing the stylesheet
-- [x] When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw).
-- [x] Display the location for each move in the format (row, col) in the move history list.
-- [x] refactor this nonsense, separation of concerns
+- [x] When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw). 18 October 2023 Wednesday
+- [x] Display the location for each move in the format (row, col) in the move history list. 18 October 2023 Wednesday
+- [x] refactor this nonsense, separation of concerns 25 October 2023 Wednesday
 - [x] add testing 25 October 2023 Wednesday
-- [ ] style and make pretty
+- [x] style and make pretty 26 October 2023 Thursday
 
 # Getting Started with Create React App
 
