@@ -160,6 +160,7 @@ button:hover {
     /* Add vertical scroll when content exceeds the container height */
     padding: 2rem;
     padding-top: 1.25rem;
+    margin-left: 1rem;
 }
 
 @media (max-width: 1200px) {
