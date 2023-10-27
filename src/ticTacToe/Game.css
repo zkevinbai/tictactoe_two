@@ -26,6 +26,11 @@ button:hover {
     transform: perspective(300px) rotateX(10deg);
     transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.title>a {
+    text-decoration: underline;
+}
+
 /* 
 .title:hover {
     transform: perspective(300px) rotateX(0deg) translateZ(10px);
@@ -146,7 +151,8 @@ background: radial-gradient(circle at center,
     align-items: flex-start;
     justify-self: center;
     /* Align content to the top */
-    max-height: 25rem;
+    max-height: 27rem;
+    width: 15rem;
     /* Set a maximum height if needed, so it scrolls when it exceeds this height */
     overflow-y: auto;
     /* Add vertical scroll when content exceeds the container height */
@@ -164,6 +170,8 @@ background: radial-gradient(circle at center,
     align-self: center;
     margin-bottom: 1rem;
     font-weight: bold;
+    border-top: 0.1rem dotted black;
+    border-bottom: 0.1rem dotted black;
 }
 
 .reversed-ol {
