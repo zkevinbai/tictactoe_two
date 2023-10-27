@@ -19,7 +19,8 @@ Fun things done
   - [x] Toggle AI or two player mode
   - [x] AI should pick a random move
   - [x] AI should pick the best move
-  - [ ] add a slider to control how fast the AI plays
+  * the AI will break time travel mode, because if you can replay your moves, so can it
+- [ ] add a slider to control how fast the AI plays
 - [ ] switch back and forth between X and O
 
 # Getting Started with Create React App
