@@ -12,6 +12,8 @@ function Game() {
         moveHistory: {},
     });
 
+    const [AiActive, setAiActive] = useState(false);
+
     const xIsNext = gameState.currentMove % 2 === 0;
     const currentSquares = gameState.history[gameState.currentMove];
 
@@ -35,30 +37,62 @@ function Game() {
             return; // The game is over, or the board is full
         }
 
-        const availablePositions = [];
-        for (let i = 0; i < currentSquares.length; i++) {
-            if (!currentSquares[i]) {
-                availablePositions.push(i);
+        const winningLine = findWinningMove(currentSquares, xIsNext ? 'X' : 'O');
+        const blockingLine = findWinningMove(currentSquares, xIsNext ? 'O' : 'X');
+
+        if (winningLine) {
+            // Take the winning move
+            handlePlay({
+                nextSquares: currentSquares.map((value, index) => {
+                    return index === winningLine ? (xIsNext ? 'X' : 'O') : value;
+                }),
+                moveData: {
+                    index: winningLine,
+                    player: xIsNext ? 'X' : 'O',
+                    row: Math.floor(winningLine / 3),
+                    column: winningLine % 3,
+                },
+            });
+        } else if (blockingLine) {
+            // Block the opponent from winning
+            handlePlay({
+                nextSquares: currentSquares.map((value, index) => {
+                    return index === blockingLine ? (xIsNext ? 'X' : 'O') : value;
+                }),
+                moveData: {
+                    index: blockingLine,
+                    player: xIsNext ? 'X' : 'O',
+                    row: Math.floor(blockingLine / 3),
+                    column: blockingLine % 3,
+                },
+            });
+        } else {
+            // If no immediate winning or blocking move, make a random move
+            const availablePositions = [];
+            for (let i = 0; i < currentSquares.length; i++) {
+                if (!currentSquares[i]) {
+                    availablePositions.push(i);
+                }
             }
-        }
 
-        if (availablePositions.length === 0) {
-            return; // No available moves left
-        }
+            if (availablePositions.length === 0) {
+                return; // No available moves left
+            }
 
-        const randomIndex = Math.floor(Math.random() * availablePositions.length);
-        const aiMove = availablePositions[randomIndex];
-        handlePlay({
-            nextSquares: currentSquares.map((value, index) => {
-                return index === aiMove ? (xIsNext ? 'X' : 'O') : value;
-            }),
-            moveData: {
-                index: aiMove,
-                player: xIsNext ? 'X' : 'O',
-                row: Math.floor(aiMove / 3),
-                column: aiMove % 3,
-            },
-        });
+            const randomIndex = Math.floor(Math.random() * availablePositions.length);
+            const aiMove = availablePositions[randomIndex];
+            handlePlay({
+                nextSquares: currentSquares.map((value, index) => {
+                    return index === aiMove ? (xIsNext ? 'X' : 'O') : value;
+                }),
+                moveData: {
+                    index: aiMove,
+                    player: xIsNext ? 'X' : 'O',
+                    row: Math.floor(aiMove / 3),
+                    column: aiMove % 3,
+                },
+            });
+        }
     }
 
     function handleReset() {
@@ -80,7 +114,9 @@ function Game() {
 
     // Add an effect to make the AI move when it's the AI player's turn
     useEffect(() => {
-        if (!xIsNext) {
+        // add logic for a boolean play withAI
+        // add logic to choose player
+        if (!xIsNext && AiActive) {
             makeAIMove();
         }
     }, [xIsNext]);
@@ -92,6 +128,10 @@ function Game() {
                 <a href="https://github.com/zkevinbai/tictactoe_two/tree/master" target="_blank" rel="noopener noreferrer">
                     Github Repo
                 </a>
+                <button className='ai-button' onClick={() => setAiActive(!AiActive)}>
+                    {AiActive ? 'Play Two Player Game' : 'Play Against the AI'}
+                </button>
+                <p>{`You are playing ${AiActive ? 'the AI' : 'a two player game'}`}</p>
             </div>
 
             <div className='game'>
@@ -141,6 +181,21 @@ function calculateWinner(squares) {
     }
 
     return null;
+}
+
+function findWinningMove(squares, symbol) {
+    for (let i = 0; i < squares.length; i++) {
+        if (!squares[i]) {
+            const tempSquares = squares.slice(); // Create a copy of the current squares
+            tempSquares[i] = symbol; // Temporarily place the AI's symbol
+
+            if (calculateWinner(tempSquares)) {
+                return i; // If placing the symbol here results in a win, return the position
+            }
+        }
+    }
+
+    return null; // If no winning move is found, return null
 }
 
 export default Game;
