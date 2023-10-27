@@ -2,7 +2,10 @@
 
 ## This is a tic tac toe game with time travel implemented
 
-Fun things done
+Features I've added
+- [x] Make a playable Tic Tac Toe game
+- [x] Allow the user to go back in time through their moves
+- [x] Allow the game to be reset at any time 
 - [x] For the current move only, show “You are at move #…” instead of a button. 17 October 2023 Tuesday
 - [x] Rewrite Board to use two loops to make the squares instead of hardcoding them. 17 October 2023 Tuesday
   * this was challenging for me
@@ -20,6 +23,7 @@ Fun things done
   - [x] AI should pick a random move
   - [x] AI should pick the best move
   * the AI will break time travel mode, because if you can replay your moves, so can it
+- [ ] fix the warning
 - [ ] add a slider to control how fast the AI plays
 - [ ] switch back and forth between X and O
 
