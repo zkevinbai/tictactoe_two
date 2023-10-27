@@ -1,17 +1,18 @@
-.game {
+.title {
     display: grid;
     place-items: center;
-    /* height: 100vh; */
-    /* Ensure the board takes up the full viewport height */
-    /* grid-template-rows: 1fr 1fr 1fr; */
+}
 
+.game {
+    display: grid;
+    /* place-items: center; */
     grid-template-columns: repeat(2, 1fr);
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 5rem;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 1000px) {
     .game {
         grid-template-columns: none;
         grid-template-rows: repeat(2, 1fr);
@@ -21,7 +22,11 @@
     }
 }
 
-/* Use CSS Grid for board rows */
+.game-board {
+    display: grid;
+    place-items: center;
+}
+
 .board-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -40,14 +45,11 @@
     font-weight: bold;
     line-height: 7rem;
     height: 7rem;
+    width: 7rem;
     text-align: center;
-    /* Use CSS Grid for squares */
     display: grid;
     place-items: center;
-    /* Maintain the size without margin and border adjustments */
-    width: 7rem;
     transition: background-color 0.3s;
-    /* Add a smooth transition effect */
 }
 
 .square:hover {
@@ -74,13 +76,26 @@ button {
     font: inherit;
 }
 
-/* Style reversed move history */
-ol.reversed-ol {
+.move-history {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align content to the top */
+    max-height: 400px;
+    /* Set a maximum height if needed, so it scrolls when it exceeds this height */
+    overflow-y: auto;
+    /* Add vertical scroll when content exceeds the container height */
+    border: 1px solid #ccc;
+    /* Optional: Add a border for visual separation */
+    padding: 10px;
+    /* Optional: Add padding for spacing */
+}
+
+.reversed-ol {
     display: flex !important;
     flex-direction: column-reverse !important;
 }
 
-/* Adjust margin for the "Sort Moves" button */
 .sort-moves {
     margin-left: 2.5rem;
 }
