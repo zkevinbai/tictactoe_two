@@ -12,15 +12,15 @@ Fun things done
   * ran into trouble with style not applying, issue was that I was not importing the stylesheet
 - [x] When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw). 18 October 2023 Wednesday
 - [x] Display the location for each move in the format (row, col) in the move history list. 18 October 2023 Wednesday
-- [x] refactor this nonsense, separation of concerns 25 October 2023 Wednesday
-- [x] add testing 25 October 2023 Wednesday
-- [x] style and make pretty 26 October 2023 Thursday
-- [ ] add an AI to play against you
-  * toggle AI or two player mode
-  * AI should pick a random move
-  * AI should pick the best move
-- [ ] 
-- [ ] 
+- [x] Refactor this nonsense, separation of concerns 25 October 2023 Wednesday
+- [x] Add testing 25 October 2023 Wednesday
+- [x] Style and make pretty 26 October 2023 Thursday
+- [x] Add an AI to play against you
+  - [x] Toggle AI or two player mode
+  - [x] AI should pick a random move
+  - [x] AI should pick the best move
+  - [ ] add a slider to control how fast the AI plays
+- [ ] switch back and forth between X and O
 
 # Getting Started with Create React App
 
