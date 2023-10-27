@@ -10,7 +10,7 @@ function MoveHistory({
     return (
         <>
             <button
-                className='sort-moves'
+                className='sort-moves-button'
                 onClick={() => setLatestFirst(!latestFirst)}
             >
                 {latestFirst ? "Latest move first" : "Oldest move first"}
@@ -25,7 +25,12 @@ function MoveHistory({
                             {isSelected ? (
                                 move === 0 ? 'You are at the first move' : `You are at move # ${move} by ${move % 2 ? 'X' : 'O'}`
                             ) : (
-                                <button onClick={() => jumpTo(move)}>{description}</button>
+                                <button 
+                                    className='history-button'
+                                    onClick={() => jumpTo(move)}
+                                >
+                                    {description}
+                                </button>
                             )}
                         </li>
                     );
