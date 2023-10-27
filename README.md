@@ -15,6 +15,12 @@ Fun things done
 - [x] refactor this nonsense, separation of concerns 25 October 2023 Wednesday
 - [x] add testing 25 October 2023 Wednesday
 - [x] style and make pretty 26 October 2023 Thursday
+- [ ] add an AI to play against you
+  * toggle AI or two player mode
+  * AI should pick a random move
+  * AI should pick the best move
+- [ ] 
+- [ ] 
 
 # Getting Started with Create React App
 

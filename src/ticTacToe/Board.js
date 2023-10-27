@@ -64,15 +64,17 @@ function Board({
         )
     }
 
-    let status
+    let status;
+
     if (winningLine) {
-        const winner = squares[winningLine[0]]
-        status = "Winner: " + winner
+        const winner = squares[winningLine[0]];
+        status = `Winner: ${winner}`;
     } else if (isATie) {
-        status = 'Its a tie, would you like to play again?'
+        status = "It's a tie, would you like to play again?";
     } else {
-        status = "Next player: " + (xIsNext ? "X" : "O")
+        status = `Next player: ${xIsNext ? "X" : "O"}`;
     }
+
 
     return (
         <>
