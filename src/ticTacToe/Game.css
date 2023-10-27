@@ -1,7 +1,24 @@
 .title {
     display: grid;
     place-items: center;
+
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.5);
+    transform: perspective(300px) rotateX(10deg);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+/* 
+.title:hover {
+    transform: perspective(300px) rotateX(0deg) translateZ(10px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+} */
 
 .game {
     display: grid;
@@ -32,7 +49,7 @@
     margin-bottom: 1rem;
 
     /* padding: 1rem; */
-    border: 0.25rem solid #0092f4;
+    border: 0.75rem double #3498db;
     border-radius: 1rem;
 }
 
@@ -92,12 +109,14 @@ background: radial-gradient(circle at center,
 
 .game-status {
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 .reset-button {
     text-align: center;
     margin: 1rem;
+    font-weight: bold;
 }
 
 button {
