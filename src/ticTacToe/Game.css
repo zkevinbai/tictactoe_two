@@ -50,16 +50,35 @@
     display: grid;
     place-items: center;
     transition: background-color 0.3s;
+
+    border-radius: 0.25rem;
 }
 
 .square:hover {
-    background-color: rgba(0, 255, 255, 0.3);
+    /* background-color: rgba(0, 255, 255, 0.3);
+    background: linear-gradient(to top,
+        rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5)); */
     cursor: pointer;
-}
+    background-image: conic-gradient(from 250deg, #ff4800 10%, #dfd902 35%, #20dc68, #0092f4, #da54d8 72% 75%, #ff4800 95%);
+
+    /* background-image: conic-gradient(from 0deg,
+                rgba(255, 72, 0, 0.95) 10%,
+                rgba(223, 217, 2, 0.95) 35%,
+                rgba(32, 220, 104, 0.95) 50%,
+                rgba(0, 146, 244, 0.95) 70%,
+                rgba(218, 84, 216, 0.95) 72%,
+                rgba(255, 72, 0, 0.95) 95%); */
+background: radial-gradient(circle at center,
+            rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));}
 
 .square-winner {
     transition: background-color 0.5s;
-    background-color: rgba(6, 247, 247, 0.6)
+    background-color: rgba(6, 247, 247, 0.6);
+    background: linear-gradient(to top,
+        rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));
+    background: radial-gradient(circle at center,
+            rgba(148, 0, 211, 0.5), rgba(75, 0, 130, 0.5), rgba(0, 0, 255, 0.5), rgba(0, 128, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 0, 0, 0.5));
+    /* background-image: conic-gradient(from 270deg, #ff4800 10%, #dfd902 35%, #20dc68, #0092f4, #da54d8 72% 75%, #ff4800 95%); */
 }
 
 .game-status {
@@ -77,6 +96,9 @@ button {
 }
 
 .move-history {
+    background: linear-gradient(to bottom,
+            rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -86,9 +108,8 @@ button {
     /* Set a maximum height if needed, so it scrolls when it exceeds this height */
     overflow-y: auto;
     /* Add vertical scroll when content exceeds the container height */
-    /* border: 1px solid #ccc; */
-    /* Optional: Add a border for visual separation */
-    padding: 1rem;
+    padding: 2rem;
+    padding-left: 1rem;
     /* Optional: Add padding for spacing */
 }
 
