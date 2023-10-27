@@ -76,7 +76,7 @@ function Board({
 
     return (
         <>
-            <div className='status'>{status}</div>
+            <div className='game-status'>{status}</div>
 
             <div className='board'>
                 {
@@ -84,14 +84,8 @@ function Board({
                 }
             </div>
 
-            <div className='reset' data-testid="reset-button">
+            <div className='reset-button' data-testid="reset-button">
                 <button onClick={onReset}>reset</button>
-            </div>
-
-            <div>
-                <a href="https://github.com/zkevinbai/tictactoe_two/tree/master" target="_blank" rel="noopener noreferrer">
-                    Open Github Repo (see the code)
-                </a>
             </div>
         </>
     )

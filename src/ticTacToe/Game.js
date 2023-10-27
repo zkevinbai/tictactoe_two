@@ -48,29 +48,38 @@ function Game() {
     }
 
     return (
-        <div className='game'>
-            <div className='game-board'>
-                <Board
-                    xIsNext={xIsNext}
-                    squares={currentSquares}
-                    onPlay={handlePlay}
-                    onReset={handleReset}
-                    winningLine={gameState.winningLine}
-                    isATie={!gameState.winningLine && gameState.currentMove === 9}
-                />
+        <>
+            <div className='title'>
+                <h1>Kevin's Time Travel Tic Tac Toe</h1>
+                <a href="https://github.com/zkevinbai/tictactoe_two/tree/master" target="_blank" rel="noopener noreferrer">
+                    Github Repo
+                </a>
             </div>
-            <div className='move-history'>
-                <MoveHistory
-                    latestFirst={gameState.latestFirst}
-                    setLatestFirst={(latestFirst) =>
-                        setGameState({ ...gameState, latestFirst })
-                    }
-                    moves={gameState.history}
-                    currentMove={gameState.currentMove}
-                    jumpTo={jumpTo}
-                />
+
+            <div className='game'>
+                <div className='game-board'>
+                    <Board
+                        xIsNext={xIsNext}
+                        squares={currentSquares}
+                        onPlay={handlePlay}
+                        onReset={handleReset}
+                        winningLine={gameState.winningLine}
+                        isATie={!gameState.winningLine && gameState.currentMove === 9}
+                    />
+                </div>
+                <div className='move-history'>
+                    <MoveHistory
+                        latestFirst={gameState.latestFirst}
+                        setLatestFirst={(latestFirst) =>
+                            setGameState({ ...gameState, latestFirst })
+                        }
+                        moves={gameState.history}
+                        currentMove={gameState.currentMove}
+                        jumpTo={jumpTo}
+                    />
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

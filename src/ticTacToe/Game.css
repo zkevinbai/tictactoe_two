@@ -60,12 +60,12 @@
     background-color: rgba(6, 247, 247, 0.6)
 }
 
-.status {
+.game-status {
     text-align: left;
     margin-bottom: 10px;
 }
 
-.reset {
+.reset-button {
     text-align: center;
     margin: 1rem;
 }
