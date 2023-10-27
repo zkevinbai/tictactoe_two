@@ -125,6 +125,39 @@ function Game() {
         }
     }, [xIsNext, AiActive]);
 
+    function SliderInput() {
+        const [value, setValue] = useState(0);
+
+        const options = [0, 10, 50, 100];
+
+        const handleChange = (event) => {
+            setValue(parseInt(event.target.value, 10));
+        };
+
+        return (
+            <div>
+                <label htmlFor="slider">Select a Value:</label>
+                <input
+                    type="range"
+                    min={0}
+                    max={100}
+                    step={10}
+                    value={value}
+                    onChange={handleChange}
+                    id="slider"
+                />
+                <p>Selected Value: {value}</p>
+                <ul>
+                    {options.map((option) => (
+                        <li key={option}>
+                            <button onClick={() => setValue(option)}>{option}</button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+
     return (
         <>
             <div className='title'>
@@ -137,6 +170,7 @@ function Game() {
                         {AiActive ? 'Play Two Player Game' : 'Play Against the AI'}
                     </button>
                     <p>{`You are playing ${AiActive ? 'the AI' : 'a two player game'}`}</p>
+                    {/* <SliderInput /> */}
                 </div>
             </div>
 
