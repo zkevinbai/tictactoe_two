@@ -27,6 +27,15 @@
     place-items: center;
 }
 
+.board {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    /* padding: 1rem; */
+    border: 0.25rem solid #0092f4;
+    border-radius: 1rem;
+}
+
 .board-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
