@@ -101,19 +101,14 @@ button:hover {
     /* background-color: rgba(0, 255, 255, 0.3);
     background: linear-gradient(to top,
         rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5)); */
-    background-image: conic-gradient(from 250deg, #ff4800 10%, #dfd902 35%, #20dc68, #0092f4, #da54d8 72% 75%, #ff4800 95%);
-
-    /* background-image: conic-gradient(from 0deg,
-                rgba(255, 72, 0, 0.95) 10%,
-                rgba(223, 217, 2, 0.95) 35%,
-                rgba(32, 220, 104, 0.95) 50%,
-                rgba(0, 146, 244, 0.95) 70%,
-                rgba(218, 84, 216, 0.95) 72%,
-                rgba(255, 72, 0, 0.95) 95%); */
-background: radial-gradient(circle at center,
-            rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));}
+    /* background-image: conic-gradient(from 250deg, #ff4800 10%, #dfd902 35%, #20dc68, #0092f4, #da54d8 72% 75%, #ff4800 95%); */
+    color: rgba(0, 0, 0, 0.5);
+    background: radial-gradient(circle at center,
+        rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));
+}
 
 .square-winner {
+    color: white;
     transition: background-color 0.5s;
     background-color: rgba(6, 247, 247, 0.6);
     background: linear-gradient(to top,
