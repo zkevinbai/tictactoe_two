@@ -76,7 +76,9 @@ function Board({
 
     return (
         <>
-            <div className='game-status'>{status}</div>
+            <div className='game-status'>
+                {status}
+            </div>
 
             <div className='board'>
                 {
@@ -84,11 +86,13 @@ function Board({
                 }
             </div>
 
-            <div className='reset-button' data-testid="reset-button">
-                <button onClick={onReset}>
-                    Reset game
-                </button>
-            </div>
+            <button
+                className='reset-button'
+                data-testid="reset-button"
+                onClick={onReset}
+            >
+                Reset game
+            </button>
         </>
     )
 };

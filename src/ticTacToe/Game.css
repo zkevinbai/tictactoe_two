@@ -1,3 +1,11 @@
+button {
+    font: inherit;
+    padding: 0.1rem;
+    border: 0.1rem solid black;
+    border-radius: 0.25rem;
+    background: white;
+}
+
 .title {
     display: grid;
     place-items: center;
@@ -111,21 +119,25 @@ background: radial-gradient(circle at center,
     text-align: left;
     margin-bottom: 1rem;
     font-weight: bold;
+    font-size: 1.25rem;
 }
 
 .reset-button {
     text-align: center;
     margin: 1rem;
     font-weight: bold;
+    background: #93d3ff;
 }
 
-button {
-    font: inherit;
+.reset-button:hover {
+    background-color: #5fbfff;
+    cursor: pointer;
 }
 
 .move-history {
-    background: linear-gradient(to bottom,
-            rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5));
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -137,7 +149,7 @@ button {
     overflow-y: auto;
     /* Add vertical scroll when content exceeds the container height */
     padding: 2rem;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
     /* Optional: Add padding for spacing */
 }
 
