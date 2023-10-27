@@ -15,7 +15,7 @@ Fun things done
 - [x] Refactor this nonsense, separation of concerns 25 October 2023 Wednesday
 - [x] Add testing 25 October 2023 Wednesday
 - [x] Style and make pretty 26 October 2023 Thursday
-- [x] Add an AI to play against you
+- [x] Add an AI to play against you 27 October 2023 Friday
   - [x] Toggle AI or two player mode
   - [x] AI should pick a random move
   - [x] AI should pick the best move
