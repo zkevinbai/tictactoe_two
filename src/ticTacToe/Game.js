@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Board from './Board';
 import MoveHistory from './MoveHistory';
 import './Game.css'
@@ -30,6 +30,37 @@ function Game() {
         });
     }
 
+    function makeAIMove() {
+        if (gameState.winningLine || gameState.currentMove === 9) {
+            return; // The game is over, or the board is full
+        }
+
+        const availablePositions = [];
+        for (let i = 0; i < currentSquares.length; i++) {
+            if (!currentSquares[i]) {
+                availablePositions.push(i);
+            }
+        }
+
+        if (availablePositions.length === 0) {
+            return; // No available moves left
+        }
+
+        const randomIndex = Math.floor(Math.random() * availablePositions.length);
+        const aiMove = availablePositions[randomIndex];
+        handlePlay({
+            nextSquares: currentSquares.map((value, index) => {
+                return index === aiMove ? (xIsNext ? 'X' : 'O') : value;
+            }),
+            moveData: {
+                index: aiMove,
+                player: xIsNext ? 'X' : 'O',
+                row: Math.floor(aiMove / 3),
+                column: aiMove % 3,
+            },
+        });
+    }
+
     function handleReset() {
         setGameState({
             ...gameState,
@@ -46,6 +77,13 @@ function Game() {
             winningLine: calculateWinner(gameState.history[nextMove]),
         });
     }
+
+    // Add an effect to make the AI move when it's the AI player's turn
+    useEffect(() => {
+        if (!xIsNext) {
+            makeAIMove();
+        }
+    }, [xIsNext]);
 
     return (
         <>
