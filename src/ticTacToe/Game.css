@@ -17,7 +17,6 @@ button:hover {
 
     font-size: 1rem;
     font-weight: bold;
-    text-transform: uppercase;
     text-align: center;
     padding: 1rem;
     background-color: #3498db;
@@ -32,16 +31,13 @@ button:hover {
     text-decoration: underline;
 }
 
-.nowrap {
+.span-nowrap {
     white-space: nowrap;
 }
 
-@media screen and (max-width: 768px) {
-
-    /* Adjust the max-width value to your needs */
-    .nowrap {
-        white-space: normal;
-        display: block;
+@media (max-width: 1200px) {
+    .title>h1 {
+        font-size: 1.5rem;
     }
 }
 
@@ -49,21 +45,11 @@ button:hover {
     margin-top: 0.25rem;
     text-transform: none;
 }
-
-.ai-container>.p-ai {
-    background: linear-gradient(to top,
-            rgba(255, 0, 0), rgba(255, 165, 0), rgba(255, 255, 0), rgba(0, 128, 0), rgba(0, 0, 255), rgba(75, 0, 130), rgba(148, 0, 211));
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
 .ai-container>button {
     background: rgba(255, 255, 255, 0.25);
     border: none;
-    border-left: dashed;
-    border-right: dashed;
-    border-color: white;
-    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     color: white;
 }
 .ai-container>button:hover {
@@ -89,7 +75,7 @@ button:hover {
         grid-template-rows: repeat(2, 1fr);
         margin-left: 0;
         margin-right: 0;
-        margin-top: 3rem;
+        margin-top: 2.5rem;
         margin-bottom: 5rem;
     }
 }
@@ -165,6 +151,22 @@ button:hover {
     margin-bottom: 1rem;
     font-weight: bold;
     font-size: 1.25rem;
+}
+
+.ai-status {
+    background: conic-gradient(from 60deg,
+        red,
+        yellow,
+        green,
+        cyan,
+        blue,
+        magenta,
+        red);
+    -webkit-background-clip: text;
+    /* Clip the gradient to the text */
+    background-clip: text;
+    color: transparent;
+    /* Make the text color transparent */
 }
 
 .reset-button {

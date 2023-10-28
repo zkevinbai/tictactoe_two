@@ -8,6 +8,7 @@ function Board({
     onReset,
     winningLine,
     isATie,
+    AiActive,
 }) {
     function handleClick(idx) {
         if (winningLine || squares[idx]) {
@@ -80,6 +81,10 @@ function Board({
         <>
             <div className='game-status'>
                 {status}
+            </div>
+
+            <div className='ai-status'>
+                {AiActive ? 'You are playing against the AI' : ''} 
             </div>
 
             <div className='board'>

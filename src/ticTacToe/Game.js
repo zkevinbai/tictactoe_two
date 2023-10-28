@@ -161,7 +161,7 @@ function Game() {
     return (
         <>
             <div className='title'>
-                <h1>Kevin's Time Travel <span class="nowrap">Tic Tac Toe</span></h1>
+                <h1>Kevin's Time Travel <span class="span-nowrap">Tic Tac Toe</span></h1>
                 <a href='https://github.com/zkevinbai/tictactoe_two/tree/master' target='_blank' rel='noopener noreferrer'>
                     Github Repo
                 </a>
@@ -169,8 +169,6 @@ function Game() {
                     <button className='ai-button' onClick={() => setAiActive(!AiActive)}>
                         {AiActive ? 'Play Two Player Game' : 'Play Against the AI'}
                     </button>
-                    <p>{`You are playing ${AiActive ? 'the AI, you play X' : 'a two player game'}`}</p>
-                    {/* <SliderInput /> */}
                 </div>
             </div>
 
@@ -183,6 +181,7 @@ function Game() {
                         onReset={handleReset}
                         winningLine={gameState.winningLine}
                         isATie={!gameState.winningLine && gameState.currentMove === 9}
+                        AiActive={AiActive}
                     />
                 </div>
                 <div className='move-history'>
