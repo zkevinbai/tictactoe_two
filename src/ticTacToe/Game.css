@@ -27,6 +27,10 @@ button:hover {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.title>h1 {
+    text-transform: uppercase;
+}
+
 .title>a {
     text-decoration: underline;
 }
@@ -206,6 +210,7 @@ button:hover {
 @media (max-width: 1200px) {
     .move-history {
         margin-top: 3rem;
+        margin-left: 0;
     }
 }
 
