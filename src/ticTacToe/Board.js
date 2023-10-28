@@ -84,7 +84,7 @@ function Board({
             </div>
 
             <div className='ai-status'>
-                {AiActive ? 'You are playing against the AI' : ''} 
+                {AiActive ? 'You are playing X against the AI' : ''} 
             </div>
 
             <div className='board'>

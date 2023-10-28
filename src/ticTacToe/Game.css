@@ -156,9 +156,10 @@ button:hover {
 .ai-status {
     background: conic-gradient(from 60deg,
         red,
-        yellow,
-        green,
-        cyan,
+        orange,
+        /* yellow, */
+        /* green, */
+        /* cyan, */
         blue,
         magenta,
         red);
