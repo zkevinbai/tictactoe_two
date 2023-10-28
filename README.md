@@ -26,6 +26,7 @@ Features and fun things I've added
 - [ ] fix the warning
 - [ ] add a slider to control how fast the AI plays
 - [ ] switch back and forth between X and O
+- [ ] make a 5x5 connect 5 game, and a 10x10 connect 5 game
 
 # Getting Started with Create React App
 
