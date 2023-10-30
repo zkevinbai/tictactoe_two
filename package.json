@@ -1,7 +1,7 @@
 {
   "name": "tictactoe_two",
   "homepage": "https://zkevibai.github.io/tictactoe_two",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
