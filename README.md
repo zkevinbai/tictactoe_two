@@ -23,6 +23,7 @@ Features and fun things I've added
   - [x] AI should pick a random move
   - [x] AI should pick the best move
   * the AI will break time travel mode, because if you can replay your moves, so can it
+- [x] Add Google Analytics Tracking 8 November 2023 Wednesday
 - [ ] fix the warning
 - [ ] add a slider to control how fast the AI plays
 - [ ] switch back and forth between X and O
