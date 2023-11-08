@@ -40,7 +40,7 @@ function Game() {
         const winningLine = findWinningMove(currentSquares, xIsNext ? 'X' : 'O');
         const blockingLine = findWinningMove(currentSquares, xIsNext ? 'O' : 'X');
 
-        if (winningLine) {
+        if (typeof (winningLine) === 'number') {
             // Take the winning move
             handlePlay({
                 nextSquares: currentSquares.map((value, index) => {
@@ -53,7 +53,7 @@ function Game() {
                     column: winningLine % 3,
                 },
             });
-        } else if (blockingLine) {
+        } else if (typeof (blockingLine) === 'number') {
             // Block the opponent from winning
             handlePlay({
                 nextSquares: currentSquares.map((value, index) => {
