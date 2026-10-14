@@ -22,11 +22,12 @@ test('allows making a move by clicking a square', () => {
 });
 
 test('allows winning the game and dsiplays the correct winner', () => {
-  render(<Game />);
+  const { container } = render(<Game />);
   const status = screen.getByText('Next player: X');
   expect(status).toBeInTheDocument();
 
-  const squares = screen.getAllByRole('button');
+  // Select only the board squares (other buttons, e.g. the AI toggle, come first)
+  const squares = container.querySelectorAll('.square');
   fireEvent.click(squares[0]); // X
   fireEvent.click(squares[3]); // O
   fireEvent.click(squares[1]); // X
